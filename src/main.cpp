@@ -2,6 +2,10 @@
 #include <DHTesp.h>
 #include <SSD1306.h>
 
+#include <ESP8266WiFi.h>
+#include <ESP8266mDNS.h>
+#include <ConfigPortal8266.h>
+
 DHTesp              dht;
 SSD1306             display(0x3c, 4, 5, GEOMETRY_128_32);
 int                 interval = 2000;
@@ -9,12 +13,24 @@ unsigned long       lastDHTReadMillis = 0;
 float               humidity = 0;
 float               temperature = 0;
 
+char*               ssid_pfix = (char*)"2015146033LCH";
+String              user_config_html = "";  
+
 void setup() {
     Serial.begin(115200);
+
+    // WIFI CODE
+    // WIFI CODE
+    // WIFI CODE
+    
+    // WIFI CODE
+    // WIFI CODE
+    // WIFI CODE
+
+
     dht.setup(14, DHTesp::DHT22); // Connect DHT sensor to GPIO 14
     delay(1000);
     Serial.println(); Serial.println("Humidity (%)\tTemperature (C)");
-    delay(1000);
 }
 
 void readDHT22() {
@@ -37,4 +53,5 @@ void loop() {
     display.drawString(0, 16, String(humidity));
     display.display();
     delay(1000);
+   
 }
